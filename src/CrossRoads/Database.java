@@ -11,11 +11,13 @@ import java.sql.ResultSetMetaData;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+
+import javax.sql.rowset.CachedRowSet;
+import javax.sql.rowset.RowSetProvider;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import org.apache.derby.jdbc.EmbeddedDriver;
-import com.sun.rowset.CachedRowSetImpl;
 import CrossRoads.GUI.AppWindow;
 import CrossRoads.GameSession.Map;
 import CrossRoads.GameSession.Entities.Score;
@@ -38,9 +40,9 @@ public abstract class Database {
 	private static Connection conn=null;  // connessione posta a null; se tutto funziona regolarmente, non restituisce mai null, altrimenti dà eccezione
 	private static PreparedStatement pstmt; // PreparedStatement è un oggetto che rappresenta uno statement SQL precompilato
 	private static Statement stmt=null;
-	private static CachedRowSetImpl crsEasy;
-	private static CachedRowSetImpl crsMedium;
-	private static CachedRowSetImpl crsHard;
+	private static CachedRowSet crsEasy;
+	private static CachedRowSet crsMedium;
+	private static CachedRowSet crsHard;
 	private static ResultSet rsEasy;
 	private static ResultSet rsMedium;
 	private static ResultSet rsHard;
@@ -89,9 +91,9 @@ public abstract class Database {
 				tblEasy=new JTable();
 				tblMedium=new JTable();
 				tblHard=new JTable();
-				crsEasy=new CachedRowSetImpl();
-				crsMedium=new CachedRowSetImpl();
-				crsHard=new CachedRowSetImpl();
+				crsEasy=RowSetProvider.newFactory().createCachedRowSet();
+				crsMedium=RowSetProvider.newFactory().createCachedRowSet();
+				crsHard=RowSetProvider.newFactory().createCachedRowSet();
 				resultSetToCache(rsEasy, crsEasy, "Easy");  // se la table player è vuota (perchè creata), i crs sono privi di info; se una table è recuperata, i rs eseguono la query su quanto c'è e si salva il risultato nei crs
 				resultSetToCache(rsMedium, crsMedium, "Medium");
 				resultSetToCache(rsHard, crsHard, "Hard");
@@ -123,9 +125,9 @@ public abstract class Database {
 			pstmt.setString(6, timeFormat.format(match_time));
 			pstmt.setString(7, level);
 			pstmt.executeUpdate();
-			crsEasy=new CachedRowSetImpl();  // si ricreano i crs perchè saranno riempiti da nuovi ResultSet
-			crsMedium=new CachedRowSetImpl();
-			crsHard=new CachedRowSetImpl();
+			crsEasy=RowSetProvider.newFactory().createCachedRowSet();  // si ricreano i crs perchè saranno riempiti da nuovi ResultSet
+			crsMedium=RowSetProvider.newFactory().createCachedRowSet();
+			crsHard=RowSetProvider.newFactory().createCachedRowSet();
 			resultSetToCache(rsEasy, crsEasy, "Easy");
 			resultSetToCache(rsMedium, crsMedium, "Medium");
 			resultSetToCache(rsHard, crsHard, "Hard");
@@ -160,7 +162,7 @@ public abstract class Database {
 	/**
 	 * Il ResultSet è salvato in memoria locale grazie all'apposito oggetto Java CachedRowSetImpl 
 	 */
-	public static CachedRowSetImpl resultSetToCache(ResultSet rs, CachedRowSetImpl crs, String difficulty) {
+	public static CachedRowSet resultSetToCache(ResultSet rs, CachedRowSet crs, String difficulty) {
 		try {
 			rs=stmt.executeQuery("select position, name, score, duration, date, time from player where level='"+difficulty+"' order by score desc");
 			crs.populate(rs);
@@ -173,7 +175,7 @@ public abstract class Database {
 	/**
 	 * Il ResultSet è salvato in memoria locale grazie all'apposito oggetto Java CachedRowSetImpl. Questo ResultSet è ristretto a un determinato valore del campo "name"
 	 */
-	private static CachedRowSetImpl restrictedResultSetToCache(ResultSet rs, CachedRowSetImpl crs, String difficulty) {
+	private static CachedRowSet restrictedResultSetToCache(ResultSet rs, CachedRowSet crs, String difficulty) {
 		try {
 			rs=stmt.executeQuery("select position, name, score, duration, date, time from player where name='"+AppWindow.getWantedName()+"' and level='"+difficulty+"' order by score desc");
 			crs.populate(rs);
@@ -210,9 +212,9 @@ public abstract class Database {
 	 */
 	public static void restrictedJTables() {
 		try {
-			crsEasy=new CachedRowSetImpl();
-			crsMedium=new CachedRowSetImpl();
-			crsHard=new CachedRowSetImpl();
+			crsEasy=RowSetProvider.newFactory().createCachedRowSet();
+			crsMedium=RowSetProvider.newFactory().createCachedRowSet();
+			crsHard=RowSetProvider.newFactory().createCachedRowSet();
 			restrictedResultSetToCache(rsEasy, crsEasy, "Easy");
 			restrictedResultSetToCache(rsMedium, crsMedium, "Medium");
 			restrictedResultSetToCache(rsHard, crsHard, "Hard");
@@ -232,7 +234,7 @@ public abstract class Database {
 	 * @param crs è il CachedRowSetImpl (ovvero ResultSet in cache)
 	 * @param table è la JTable
 	 */
-	public static void crsToTableModel(CachedRowSetImpl crs, JTable table) {
+	public static void crsToTableModel(CachedRowSet crs, JTable table) {
 		try {
 			DefaultTableModel tableModel=new DefaultTableModel();  // crea un modello per la JTable
 			ResultSetMetaData metaData=crs.getMetaData();  // recupera i metadata dal CachedRowSetImpl
@@ -307,7 +309,7 @@ public abstract class Database {
 	 * Restituisce il CachedRowSetImpl relativo al livello "Easy"
 	 * @return crsEasy
 	 */
-	public static CachedRowSetImpl getCRSEasy() {
+	public static CachedRowSet getCRSEasy() {
 		return crsEasy;
 	}
 	
@@ -315,7 +317,7 @@ public abstract class Database {
 	 * Restituisce il CachedRowSetImpl relativo al livello "Medium"
 	 * @return crsMedium
 	 */
-	public static CachedRowSetImpl getCRSMedium() {
+	public static CachedRowSet getCRSMedium() {
 		return crsMedium;
 	}
 	
@@ -323,7 +325,7 @@ public abstract class Database {
 	 * Restituisce il CachedRowSetImpl relativo al livello "Hard"
 	 * @return crsHard
 	 */
-	public static CachedRowSetImpl getCRSHard() {
+	public static CachedRowSet getCRSHard() {
 		return crsHard;
 	}
 
