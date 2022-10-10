@@ -100,17 +100,17 @@ public class SpawnPointPedestrian implements SpawnPoint {
 		boolean condition=true; // inizializza la condizione del while come vera
 		double decimal, partialResult; // valore decimale, risultato parziale
 		int integer;
-		while(condition) { // finché la condizione è vera
+		while(condition) { // finchÃ© la condizione Ã¨ vera
 			integer=Map.getRandObj().nextInt(lim_SUP); // numero intero generato pseudorandomicamente
 			decimal=Map.getRandObj().nextDouble(); // parte decimale generata pseudorandomicamente
-			if (integer>=lim_INF) { // se il risultato intero è maggiore o uguale al limite inferiore 
+			if (integer>=lim_INF) { // se il risultato intero Ã¨ maggiore o uguale al limite inferiore 
 				partialResult=(integer+decimal)*1000; 
-				/* somma la parte intera a quella decimale, ad esempio se la parte intera è 1 e la parte
-				 * decimale è pari a 0.7, il risultato è 1.7 (secondi). 
-				 * Si moltiplica poi per mille perché il metodo .sleep() prende 
+				/* somma la parte intera a quella decimale, ad esempio se la parte intera Ã¨ 1 e la parte
+				 * decimale Ã¨ pari a 0.7, il risultato Ã¨ 1.7 (secondi). 
+				 * Si moltiplica poi per mille perchÃ¨ il metodo .sleep() prende 
 				 * come parametro un valore long che rappresenta i millisecondi di stop
-				 * per il thread. Si nota che in ogni caso partialResult è compreso tra i due limiti
-				 * poiché il massimo valore che decimal può assumere è 0.999 e il limite superiore ed
+				 * per il thread. Si nota che in ogni caso partialResult Ã¨ compreso tra i due limiti
+				 * poichÃ© il massimo valore che decimal puÃ² assumere Ã¨ 0.999 e il limite superiore ed
 				 * inferiore sono necessariamente diversi */
 				spawnFrequency=(long) partialResult;
 				condition=false; // esce dal ciclo
@@ -156,7 +156,7 @@ public class SpawnPointPedestrian implements SpawnPoint {
 	}
 	
 	/**
-	 * Verifica se l'oggetto è uguale ad un oggetto di tipo SpawnPointPedestrian
+	 * Verifica se l'oggetto Ã¨ uguale ad un oggetto di tipo SpawnPointPedestrian
 	 */
 	public boolean equals(SpawnPointPedestrian spp) {
 		// pre: spp!=null

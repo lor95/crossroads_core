@@ -43,7 +43,7 @@ import java.awt.Insets;
 
 /**
  * Classe che estende JFrame, per generare la finestra dell'applicazione e le componenti
- * con le quali l'utente potr‡ interagire.
+ * con le quali l'utente potr√† interagire.
  */
 @SuppressWarnings("serial")
 public class AppWindow extends JFrame {
@@ -56,7 +56,7 @@ public class AppWindow extends JFrame {
 	private static JPanel returnBox;
 	private static JLabel returnLabel;
 	private static String difficulty;
-	private static int selector=0;  // variabile contatore usata in if innestati, permette la selezione della difficolt‡ sull'apposito tasto 
+	private static int selector=0;  // variabile contatore usata in if innestati, permette la selezione della difficolt√† sull'apposito tasto 
 	private static JButton btnStart;
 	private static JButton btnDifficulty;
 	private static JButton btnLeaderboard;
@@ -87,7 +87,7 @@ public class AppWindow extends JFrame {
 	private static Font fntLeadb;  // font per il JLabel leadbTitle
 	private static Color menuBkg;  // colore customizzato per il background, valori RGB
 	private static Color mapBkg;  // colore customizzato per il background della mappa, valori RGB
-	private static GameOverDialog dialog;  // il JDialog che verr‡ inizializzato in AppWindow
+	private static GameOverDialog dialog;  // il JDialog che verr√† inizializzato in AppWindow
 	private static JTabbedPane tabbedLevels;
 	private static JScrollPane scrollPanelEasy;
 	private static JScrollPane scrollPanelMedium;
@@ -154,7 +154,7 @@ public class AppWindow extends JFrame {
 		buttonsBuilder();
 		resizeBy(960, 720); // dimensione di default
 //		pack();  // le dimensioni della finestra dipendono dalle sottocomponenti (in primis dall'Icon del JLabel, 960*720).
-		setLocationRelativeTo(null); // "side effect"; se l'argomento Ë null, la finestra Ë piazzata al centro dello schermo.
+		setLocationRelativeTo(null); // "side effect"; se l'argomento √® null, la finestra √® piazzata al centro dello schermo.
 		setVisible(true);
 		menuMusicTrigger();
 		dialog=new GameOverDialog(this);  // passo AppWindow stesso al costruttore di GameOverDialog, in quanto owner del GameOverDialog
@@ -188,7 +188,7 @@ public class AppWindow extends JFrame {
 	 */
 	private void menuScreenBuilder() {
 		/*
-		 * background aggiunto come propriet‡ Icon dell'oggetto JLabel
+		 * background aggiunto come propriet√† Icon dell'oggetto JLabel
 		 */
 		background=new JLabel();
 		bg=new ImageIcon(getClass().getClassLoader().getResource("CrossRoads/Resources/gfx/menu/background.png"));
@@ -334,8 +334,8 @@ public class AppWindow extends JFrame {
 		});
 		
 		/*
-	     * tasto Search per leadbScreen da mettere in una funzione a parte, perchÈ la gerarchia in questo caso 
-	     * Ë fondamentale
+	     * tasto Search per leadbScreen da mettere in una funzione a parte, perch√© la gerarchia in questo caso 
+	     * √® fondamentale
 	     */
 	    btnSearch=new JButton();
 		btnSearch.addMouseListener(SfxManager.getBtnSFX());
@@ -393,8 +393,8 @@ public class AppWindow extends JFrame {
 
 		t=Database.getTblEasy().getMouseListeners();
 		h=Database.getTblEasy().getTableHeader().getMouseListeners();
-		Database.getTblEasy().removeMouseListener(t[1]);  // non si puÚ pi˘ modificare il contenuto della singola cella
-		Database.getTblEasy().getTableHeader().removeMouseListener(h[1]);  // non si puÚ pi˘ selezionare l'header della tabella
+		Database.getTblEasy().removeMouseListener(t[1]);  // non si pu√≤ pi√π modificare il contenuto della singola cella
+		Database.getTblEasy().getTableHeader().removeMouseListener(h[1]);  // non si pu√≤ pi√π selezionare l'header della tabella
 
 		t=Database.getTblMedium().getMouseListeners();
 		h=Database.getTblMedium().getTableHeader().getMouseListeners();
@@ -406,7 +406,7 @@ public class AppWindow extends JFrame {
 		Database.getTblHard().removeMouseListener(t[1]);
 		Database.getTblHard().getTableHeader().removeMouseListener(h[1]);
 
-		setTableGFX(Database.getTblEasy());  // vengono settate le propriet‡ relative alla grafica comuni a ciascuna JTable
+		setTableGFX(Database.getTblEasy());  // vengono settate le propriet√† relative alla grafica comuni a ciascuna JTable
 		setTableGFX(Database.getTblMedium());
 		setTableGFX(Database.getTblHard());
 
@@ -697,7 +697,7 @@ public class AppWindow extends JFrame {
 	}
 
 	/**
-	 * Setta varie propriet‡ grafiche ad una JTable
+	 * Setta varie propriet√† grafiche ad una JTable
 	 */
 	public static void setTableGFX(JTable table) {
 		centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
@@ -745,7 +745,7 @@ public class AppWindow extends JFrame {
 	}
 
 	/**
-	 * Setta la difficolt‡ tramite il contatore di tipo int, selector, e if innestati
+	 * Setta la difficolt√† tramite il contatore di tipo int, selector, e if innestati
 	 */
 	public static void setDifficulty() {
 		if(selector==0) difficulty="Easy";
@@ -790,7 +790,7 @@ public class AppWindow extends JFrame {
 	}
 
 	/**
-	 * Setta uno di tre colori per il font del JButton relativo alla difficolt‡, a seconda del livello scelto
+	 * Setta uno di tre colori per il font del JButton relativo alla difficolt√†, a seconda del livello scelto
 	 * @return lvlColor
 	 */
 	public static Color setColorButton() {
@@ -843,7 +843,7 @@ public class AppWindow extends JFrame {
 
 	/**
 	 * Restituisce la coordinata dell'asse X, relativa all'ImageIcon dm, Icon del JLabel drawnMap
-	 * @return cordX valore variabile a seconda della difficolt‡ (dimensioni e coordinate delle mappe diverse)
+	 * @return cordX valore variabile a seconda della difficolt√† (dimensioni e coordinate delle mappe diverse)
 	 */
 	public static int getDMX() {
 		int cordX;
@@ -853,7 +853,7 @@ public class AppWindow extends JFrame {
 
 	/**
 	 * Restituisce la coordinata dell'asse Y, relativa all'ImageIcon dm, Icon del JLabel drawnMap
-	 * @return cordY valore variabile a seconda della difficolt‡ (dimensioni e coordinate delle mappe diverse)
+	 * @return cordY valore variabile a seconda della difficolt√† (dimensioni e coordinate delle mappe diverse)
 	 */
 	public static int getDMY() {
 		int cordY;
@@ -964,7 +964,7 @@ public class AppWindow extends JFrame {
 	}
 
 	/**
-	 * Verifica se l'oggetto Ë uguale ad un oggetto di tipo AppWindow
+	 * Verifica se l'oggetto √® uguale ad un oggetto di tipo AppWindow
 	 */
 	public boolean equals(AppWindow appWindow) {
 		// pre: appWindow!=null

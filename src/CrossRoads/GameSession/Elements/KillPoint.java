@@ -29,7 +29,7 @@ public class KillPoint extends Rectangle {
 	}
 	
 	/**
-	 * Verifica se l'oggetto è uguale ad un oggetto di tipo KillPoint
+	 * Verifica se l'oggetto Ã¨ uguale ad un oggetto di tipo KillPoint
 	 */
 	public boolean equals(KillPoint kp) {
 		// pre: kp!=null

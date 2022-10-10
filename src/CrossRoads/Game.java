@@ -12,7 +12,7 @@ import CrossRoads.GUI.*;
 import CrossRoads.GameSession.Map;
 
 /**
- * Classe che definisce e inizializza le principali funzionalit‡ dell'applicazione
+ * Classe che definisce e inizializza le principali funzionalit√† dell'applicazione
  */
 public class Game {
 	private static boolean masterEnabler;
@@ -82,7 +82,7 @@ public class Game {
     	Time.stopTime();
     	GameOverDialog.setTextScore();
         AppWindow.getDialog().setVisible(true);
-        AppWindow.getDialog().setAlwaysOnTop(true);  // il dialog sempre sopra AppWindow, non si perde il focus se l'utente clicca su AppWindow che Ë in background
+        AppWindow.getDialog().setAlwaysOnTop(true);  // il dialog sempre sopra AppWindow, non si perde il focus se l'utente clicca su AppWindow che √® in background
 		GameOverDialog.getGameOverPrompt().setVisible(true);
         AppWindow.getDialog().setContentPane(GameOverDialog.getGameOverPrompt()); 
         AppWindow.getBkgNoise().close();
@@ -132,7 +132,7 @@ public class Game {
 	}
     
     /**
-     * Assegna un valore booleano passato per argomento alla propriet‡ masterEnabler
+     * Assegna un valore booleano passato per argomento alla propriet√† masterEnabler
      * @param boolVar
      */
     public static void setMasterEnabler(boolean boolVar) {
@@ -226,7 +226,7 @@ public class Game {
 	}
 	
 	/**
-	 * Verifica se l'oggetto Ë uguale ad un oggetto di tipo Game
+	 * Verifica se l'oggetto √® uguale ad un oggetto di tipo Game
 	 */
 	public boolean equals(Game game) {
 		// pre: game!=null

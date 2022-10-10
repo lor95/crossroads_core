@@ -126,7 +126,7 @@ public class Score extends JComponent {
 	}
 	
 	/**
-	 * Verifica se l'oggetto è uguale ad un oggetto di tipo Score
+	 * Verifica se l'oggetto Ã¨ uguale ad un oggetto di tipo Score
 	 */
 	public boolean equals(Score score) {
 		// pre: score!=null

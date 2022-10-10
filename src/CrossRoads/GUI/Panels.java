@@ -95,7 +95,7 @@ public abstract class Panels {
 	 */
 	private void menuScreenBuilder() {
 		/*
-		 * background aggiunto come propriet‡ Icon dell'oggetto JLabel
+		 * background aggiunto come propriet√† Icon dell'oggetto JLabel
 		 */
 		background=new JLabel();
 		bg=new ImageIcon(getClass().getClassLoader().getResource("CrossRoads/Resources/gfx/menu/background.png"));
@@ -239,8 +239,8 @@ public abstract class Panels {
 		});
 
 		/*
-		 * tasto Search per leadbScreen da mettere in una funzione a parte, perchÈ la gerarchia in questo caso 
-		 * Ë fondamentale
+		 * tasto Search per leadbScreen da mettere in una funzione a parte, perch√© la gerarchia in questo caso 
+		 * √® fondamentale
 		 */
 		btnSearch=new JButton();
 		btnSearch.addMouseListener(SfxManager.getBtnSFX());
@@ -298,8 +298,8 @@ public abstract class Panels {
 
 		t=Database.getTblEasy().getMouseListeners();
 		h=Database.getTblEasy().getTableHeader().getMouseListeners();
-		Database.getTblEasy().removeMouseListener(t[1]);  // non si puÚ pi˘ modificare il contenuto della singola cella
-		Database.getTblEasy().getTableHeader().removeMouseListener(h[1]);  // non si puÚ pi˘ selezionare l'header della tabella
+		Database.getTblEasy().removeMouseListener(t[1]);  // non si pu√≤ pi√π modificare il contenuto della singola cella
+		Database.getTblEasy().getTableHeader().removeMouseListener(h[1]);  // non si pu√≤ pi√π selezionare l'header della tabella
 
 		t=Database.getTblMedium().getMouseListeners();
 		h=Database.getTblMedium().getTableHeader().getMouseListeners();
@@ -311,7 +311,7 @@ public abstract class Panels {
 		Database.getTblHard().removeMouseListener(t[1]);
 		Database.getTblHard().getTableHeader().removeMouseListener(h[1]);
 
-		setTableGFX(Database.getTblEasy());  // vengono settate le propriet‡ relative alla grafica comuni a ciascuna JTable
+		setTableGFX(Database.getTblEasy());  // vengono settate le propriet√† relative alla grafica comuni a ciascuna JTable
 		setTableGFX(Database.getTblMedium());
 		setTableGFX(Database.getTblHard());
 
@@ -449,7 +449,7 @@ public abstract class Panels {
 	}
 
 	/**
-	 * Setta varie propriet‡ grafiche ad una JTable
+	 * Setta varie propriet√† grafiche ad una JTable
 	 */
 	public static void setTableGFX(JTable table) {
 		centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);

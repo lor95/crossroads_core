@@ -12,7 +12,7 @@ public class Car extends Vehicle {
 	private Thread thread;
 	
 	/**
-	 * Costruttore di Car, per argomento una coppia di coordinate (x,y) e la direzione che il veicolo avr‡ all'atto della creazione
+	 * Costruttore di Car, per argomento una coppia di coordinate (x,y) e la direzione che il veicolo avr√† all'atto della creazione
 	 * @param cordX coordinata x per la generazione
 	 * @param cordY coordinata y per la generazione
 	 * @param vDirection direzione del veicolo

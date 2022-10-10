@@ -20,7 +20,7 @@ import CrossRoads.GameSession.Entities.Queue;
 import CrossRoads.GameSession.Entities.Score;
 
 /**
- * Classe che rappresenta un semaforo, sia come entit‡ grafico-visiva, sia come entit‡ interattiva
+ * Classe che rappresenta un semaforo, sia come entit√† grafico-visiva, sia come entit√† interattiva
  */
 @SuppressWarnings("serial")
 public class TrafficLight extends JComponent {
@@ -95,19 +95,19 @@ public class TrafficLight extends JComponent {
 						breakTimer=new Timer(500, breakTask); // 500 ms per contare i click (superati quelli il semaforo si rompe)
 						breakTimer.restart();
 						clickCounter=changeStatus.getClickCount();
-						if (red) { // se il semaforo Ë rosso
+						if (red) { // se il semaforo √® rosso
 							red=false; // diventa verde
 							queue.releaseVehicles();
 							yellow=false; 
 							setLightColor(); // aggiorna il colore
 							greenToYellowTimer=new Timer(10000, greenToYellowTask);
 							greenToYellowTimer.restart(); // fai partire il timer per diventare giallo
-						} else if(!red) { // se il semaforo Ë verde
+						} else if(!red) { // se il semaforo √® verde
 							red=true;  // diventa rosso
 							if(greenToYellowTimer!=null && greenToYellowTimer.isRunning()) 
 								greenToYellowTimer.stop(); // se stava andando a giallo bloccalo
 							else if(yellowToRedTimer!=null && yellowToRedTimer.isRunning()) { // se giallo e stava andando a rosso
-								// la condizione "yellowToRedTimer!=null" Ë necessaria altrimenti potrebbe verificarsi NullPointerException
+								// la condizione "yellowToRedTimer!=null" √® necessaria altrimenti potrebbe verificarsi NullPointerException
 								red=false; // diventa verde
 								yellow=false;
 								setLightColor(); // aggiorna il colore
@@ -273,7 +273,7 @@ public class TrafficLight extends JComponent {
 	 * @return laneDirection la direzione della corsia
 	 */
 	public String getLaneDirection() {
-		return laneDirection;
+		return laneDirection;√®
 	}
 	
 	/**
@@ -285,15 +285,15 @@ public class TrafficLight extends JComponent {
 	}
 
 	/**
-	 * Restituisce la boolean isRed, che stabilisce se un semaforo Ë rosso o meno
-	 * @return red variabile boolean indicante se un semaforo Ë rosso meno
+	 * Restituisce la boolean isRed, che stabilisce se un semaforo √® rosso o meno
+	 * @return red variabile boolean indicante se un semaforo √® rosso meno
 	 */
 	public boolean isRed() {
 		return red;
 	}
 
 	/**
-	 * Assegna un colore alla propriet‡ light, a seconda delle condizioni boolean del TrafficLight
+	 * Assegna un colore alla propriet√† light, a seconda delle condizioni boolean del TrafficLight
 	 */
 	public void setLightColor() {
 		if (yellow) {
@@ -413,7 +413,7 @@ public class TrafficLight extends JComponent {
 	}
 	
 	/**
-	 * Rimuove TrafficLight come entit‡ grafica, e rimuove i JPanel di interazione ad esso associati
+	 * Rimuove TrafficLight come entit√† grafica, e rimuove i JPanel di interazione ad esso associati
 	 */
 	public void clear() {
 		queue=null;
@@ -437,7 +437,7 @@ public class TrafficLight extends JComponent {
 	}
 	
 	/**
-	 * Verifica se l'oggetto Ë uguale ad un oggetto di tipo TrafficLight
+	 * Verifica se l'oggetto √® uguale ad un oggetto di tipo TrafficLight
 	 */
 	public boolean equals(TrafficLight tl) {
 		// pre: tl!=null

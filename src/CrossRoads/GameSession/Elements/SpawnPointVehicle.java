@@ -30,7 +30,7 @@ public class SpawnPointVehicle extends SpawnPointPedestrian {
 	@Override
 	public void run() {
 		setSpawnFrequency(setLim_INF(), setLim_SUP());
-		while(Game.getMasterEnabler() && Map.getSpvList().contains(this)) { // finché lo spawner è attivo esegui il corpo del ciclo
+		while(Game.getMasterEnabler() && Map.getSpvList().contains(this)) { // finchÃ© lo spawner Ã¨ attivo esegui il corpo del ciclo
 			try {
 				getThread().sleep(spawnFrequency); // gestisco il ciclo di spawn
 				setSpawnFrequency(setLim_INF(), setLim_SUP()); // reimposto la frequenza di spawn
@@ -145,9 +145,9 @@ public class SpawnPointVehicle extends SpawnPointPedestrian {
 		// pre: n!=null
 		int prob;
 		prob=n.nextInt(100);
-		if(prob<50) vType="Car"; // 50% di probabilità per car
-		else if(prob<80) vType="Bike"; // 30% di probabilità per bike
-			 else vType="Truck"; // 20% di probabilità per truck
+		if(prob<50) vType="Car"; // 50% di probabilitÃ  per car
+		else if(prob<80) vType="Bike"; // 30% di probabilitÃ  per bike
+			 else vType="Truck"; // 20% di probabilitÃ  per truck
 	} 
 	
 	/**
@@ -158,7 +158,7 @@ public class SpawnPointVehicle extends SpawnPointPedestrian {
 	}
 	
 	/**
-	 * Verifica se l'oggetto è uguale ad un oggetto di tipo SpawnPointVehicle
+	 * Verifica se l'oggetto Ã¨ uguale ad un oggetto di tipo SpawnPointVehicle
 	 */
 	public boolean equals(SpawnPointVehicle spv) {
 		// pre: spv!=null

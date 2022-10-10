@@ -34,8 +34,8 @@ public abstract class Vehicle extends JComponent implements Runnable {
 	private boolean previousPosition; // indica che posizione occupa il veicolo rispetto un incrocio
 	protected boolean actualPosition;
 	private int previousSpeed;
-	protected int actualSpeed; // velocit‡ del veicolo indica ogni quanto il corpo del ciclo va rieseguito
-	// si Ë deciso di porlo protected (come running) per evitare spreco di risorse
+	protected int actualSpeed; // velocit√† del veicolo indica ogni quanto il corpo del ciclo va rieseguito
+	// si √® deciso di porlo protected (come running) per evitare spreco di risorse
 	// visto che viene ripetuto numerose volte
 	private String direction, nextDirection; // direzione attuale e direzione futura del veicolo
 	private int x;
@@ -78,7 +78,7 @@ public abstract class Vehicle extends JComponent implements Runnable {
 	private static int yOffSet;
 	
 	/**
-	 * Costruttore di Vehicle, per argomento una coppia di coordinate (x,y) e la direzione che il veicolo avr‡ all'atto della creazione
+	 * Costruttore di Vehicle, per argomento una coppia di coordinate (x,y) e la direzione che il veicolo avr√† all'atto della creazione
 	 * @param cordX coordinata x per la generazione
 	 * @param cordY coordinata y per la generazione
 	 * @param vDirection direzione del veicolo
@@ -92,7 +92,7 @@ public abstract class Vehicle extends JComponent implements Runnable {
 		message="";
 		previousPosition=false; // il veicolo non si trova inizialmente in un incrocio
 		seesVehicles=false;
-		setProperties(); // assegnazione delle propriet‡ del veicolo (velocit‡ larghezza lunghezza valore in punteggio)
+		setProperties(); // assegnazione delle propriet√† del veicolo (velocit√† larghezza lunghezza valore in punteggio)
 		if(direction=="NORTH" || direction=="SOUTH") // assegno il valore di una prima areaCovered
 			areaCovered=new Rectangle (x, y, height, width);
 		else 
@@ -161,7 +161,7 @@ public abstract class Vehicle extends JComponent implements Runnable {
 	public abstract void run();
 	
 	/**
-	 * Assegna valori specifici alle propriet‡ di ogni sottocategoria di Vehicle (velocit‡, dimensioni, valore in punteggio)
+	 * Assegna valori specifici alle propriet√† di ogni sottocategoria di Vehicle (velocit√†, dimensioni, valore in punteggio)
 	 */
 	public abstract void setProperties();
 
@@ -185,7 +185,7 @@ public abstract class Vehicle extends JComponent implements Runnable {
 	
 	/**
 	 * Metodo addInQueue sovraccaricato, inserisce il veicolo nella coda Queue (vuota) relativa al TrafficLight tl, argomento del metodo
-	 * @param tl oggetto di tipo TrafficLight, semaforo (a cui Ë associato una coda Queue)
+	 * @param tl oggetto di tipo TrafficLight, semaforo (a cui √® associato una coda Queue)
 	 */
 	private void addInQueue(TrafficLight tl) {
 		Queue q=tl.getQueue();
@@ -206,7 +206,7 @@ public abstract class Vehicle extends JComponent implements Runnable {
 					Map.getTlList().get(i).get2DLocation().getY(), 1, 1)) {  //hitbox interseca area di valore 1, coordinate di stopPoint2D
 				if(Map.getTlList().get(i).getLaneDirection()==direction &&
 						Map.getTlList().get(i).isRed()) {
-					running=false; // se il semaforo contenuto nel campo visivo Ë rosso allora ferma
+					running=false; // se il semaforo contenuto nel campo visivo √® rosso allora ferma
 					addInQueue(Map.getTlList().get(i));
 				}
 			}	                                                         
@@ -250,7 +250,7 @@ public abstract class Vehicle extends JComponent implements Runnable {
 				vif.areaCovered.getWidth(), vif.areaCovered.getHeight())) { // se i campi visivi interagiscono ed i veicoli procedono nella stessa direzione
 			if(!getClass().getName().equals(vif.getClass().getName())
 					&& previousSpeed<vif.actualSpeed)					
-				actualSpeed=vif.actualSpeed; // adegua le velocit‡
+				actualSpeed=vif.actualSpeed; // adegua le velocit√†
 			if(!vif.running) { // se il veicolo di riferimento si blocca
 				int i;
 				for(i=0; i<Map.getvList().size(); i++) {
@@ -279,7 +279,7 @@ public abstract class Vehicle extends JComponent implements Runnable {
 				if(direction=="NORTH" && direction==v.direction // se due veicoli procedono nella stessa direzione
 						&& areaCovered.getCenterY()>v.areaCovered.getCenterY() // se il centro dei due veicoli verifica una precondizione
 						&& fieldOfView.intersects(v.fieldOfView.getBoundsInLocal())) { // se i fieldOfView si intersecano
-					vif=v; // v Ë il veicolo di riferimento
+					vif=v; // v √® il veicolo di riferimento
 					seesVehicles=true; // questo veicolo vede v
 				}
 				else if(direction=="EAST" && direction==v.direction 
@@ -316,7 +316,7 @@ public abstract class Vehicle extends JComponent implements Runnable {
 	
 	/**
 	 * Verifica che l'oggetto di tipo Vehicle sia effettivamente nell'area di sua appartenenza, le corsie di una strada
-	 * @return inLane booleana che indica se il veicolo Ë all'interno di una corsia
+	 * @return inLane booleana che indica se il veicolo √® all'interno di una corsia
 	 */
 	protected boolean checkIfInLane() {
 		int i, j;
@@ -338,7 +338,7 @@ public abstract class Vehicle extends JComponent implements Runnable {
 	}
 
 	/**
-	 * Seleziona la direzione che il Vehicle prender‡ dopo aver superato con
+	 * Seleziona la direzione che il Vehicle prender√† dopo aver superato con
 	 * successo un incrocio
 	 */
 	private void nextDirection() { // serve per le frecce
@@ -350,8 +350,8 @@ public abstract class Vehicle extends JComponent implements Runnable {
 			else if(randDir==2) nextDirection="EAST";
 			else nextDirection="SOUTH";
 		} while(getNegDirection()==nextDirection);
-		/* la direzione che il veicolo prender‡ dopo l'incrocio non puÚ coincidere con l'inversa di quella 
-		 * attuale, poichÈ effettuerebbe un'inversione, non contemplata nelle regole di gioco
+		/* la direzione che il veicolo prender√† dopo l'incrocio non pu√≤ coincidere con l'inversa di quella 
+		 * attuale, poich√© effettuerebbe un'inversione, non contemplata nelle regole di gioco
 		 */		
 	}
 
@@ -371,7 +371,7 @@ public abstract class Vehicle extends JComponent implements Runnable {
 
 	/**
 	 * Indica il tipo di svolta che Vehicle deve andare ad effettuare: prende in considerazione
-	 * direction e nextDirection, le valuta ed indica se la svolta sar‡ a destra o a sinistra
+	 * direction e nextDirection, le valuta ed indica se la svolta sar√† a destra o a sinistra
 	 */
 	protected void goLeftRight() {
 		if(direction==nextDirection) turn="NO";
@@ -412,7 +412,7 @@ public abstract class Vehicle extends JComponent implements Runnable {
 	}
 	
 	/**
-	 * Ruota fisicamente areaCovered di 90∞ o -90∞ attorno al proprio centro, a seconda del tipo di svolta
+	 * Ruota fisicamente areaCovered di 90¬∞ o -90¬∞ attorno al proprio centro, a seconda del tipo di svolta
 	 * ed assegna a Vehicle la nuova direzione
 	 */
 	private void rotateVehicle() {
@@ -443,11 +443,11 @@ public abstract class Vehicle extends JComponent implements Runnable {
 			if(Map.getiList().get(i).intersects(getAreaCovered())) {
 				if(intersection==null)
 					intersection=Map.getiList().get(i); // scorre la lista di incroci, se la hitbox dell'incrocio all'indice i contiene interamente la hitbox del veicolo restituisce true
-				actualPosition=true; // il veicolo Ë dunque dentro l'incrocio
+				actualPosition=true; // il veicolo √® dunque dentro l'incrocio
 				i=n; // esci dal ciclo
 			}
 			else {
-				actualPosition=false; // il veicolo non Ë dentro l'incrocio
+				actualPosition=false; // il veicolo non √® dentro l'incrocio
 				i++; // controlla se sia nell'incrocio successivo della lista
 			}
 		}
@@ -460,7 +460,7 @@ public abstract class Vehicle extends JComponent implements Runnable {
 			intersection=null; // annullo l'intersezione
 			nextDirection();
 		}
-		previousPosition=actualPosition; // per effettuare il prossimo controllo Ë necessario riassegnare la posizione "passata"
+		previousPosition=actualPosition; // per effettuare il prossimo controllo √® necessario riassegnare la posizione "passata"
 	}
 
 	/**
@@ -685,8 +685,8 @@ public abstract class Vehicle extends JComponent implements Runnable {
 	}
 	
 	/**
-	 * Assegna un valore a actualSpeed, la velocit‡ corrente del veicolo
-	 * @param speed valore relativo alla velocit‡
+	 * Assegna un valore a actualSpeed, la velocit√† corrente del veicolo
+	 * @param speed valore relativo alla velocit√†
 	 */
 	public void setActualSpeed(int speed) {
 		// pre: speed!=null
@@ -694,8 +694,8 @@ public abstract class Vehicle extends JComponent implements Runnable {
 	}
 	
 	/**
-	 * Assegna un valore a previousSpeed, la velocit‡ del veicolo (precedente a eventuali modifiche)
-	 * @param speed valore relativo alla velocit‡
+	 * Assegna un valore a previousSpeed, la velocit√† del veicolo (precedente a eventuali modifiche)
+	 * @param speed valore relativo alla velocit√†
 	 */
 	public void setPreviousSpeed(int speed) {
 		// pre: speed!=null
@@ -748,8 +748,8 @@ public abstract class Vehicle extends JComponent implements Runnable {
 	}
 	
 	/**
-	 * Restituisce il valore della velocit‡ attuale di Vehicle
-	 * @return actualSpeed la velocit‡ corrente del veicolo
+	 * Restituisce il valore della velocit√† attuale di Vehicle
+	 * @return actualSpeed la velocit√† corrente del veicolo
 	 */
 	public int getActualSpeed() {
 		return actualSpeed;
@@ -789,7 +789,7 @@ public abstract class Vehicle extends JComponent implements Runnable {
 	
 	/**
 	 * Restituisce l'oggetto ActionListener showArrowTask
-	 * @return showArrowTask Ë l'azione (task) svolta per mostrare le frecce direzionali del veicolo
+	 * @return showArrowTask √® l'azione (task) svolta per mostrare le frecce direzionali del veicolo
 	 */
 	public ActionListener getShowArrowTask() {
 		return showArrowTask;

@@ -5,7 +5,7 @@ package CrossRoads.GameSession.Elements;
  */
 public interface SpawnPoint extends Runnable {
 	/**
-	 * Metodo per generare entit‡
+	 * Metodo per generare entit√†
 	 */
 	public void spawn();
 	

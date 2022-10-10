@@ -157,7 +157,7 @@ public class Intersection extends Road {
 	}
 	
 	/**
-	 * Verifica se l'oggetto è uguale ad un oggetto di tipo Intersection
+	 * Verifica se l'oggetto Ã¨ uguale ad un oggetto di tipo Intersection
 	 */
 	public boolean equals(Intersection inter) {
 		// pre: inter!=null

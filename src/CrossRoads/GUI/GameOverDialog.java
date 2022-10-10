@@ -57,7 +57,7 @@ public class GameOverDialog extends JDialog {
 	
 	/**
 	 * Costruttore di GameOverDialog, crea un JDialog customizzato con JLabel e JPanel
-	 * @param appWindow Ë il frame genitore del JDialog, ovvero il frame definito dalla classe AppWindow Ë il possessore del JDialog
+	 * @param appWindow √® il frame genitore del JDialog, ovvero il frame definito dalla classe AppWindow √® il possessore del JDialog
 	 */
 	public GameOverDialog(AppWindow appWindow) {
 		keyCount=0;
@@ -112,7 +112,7 @@ public class GameOverDialog extends JDialog {
 								name="unknown";
 							Database.setName(name);
 							Database.fillTable();
-							AppWindow.setTableGFX(Database.getTblEasy());  //vengono settate le propriet‡ relative alla grafica per ciascuna JTable
+							AppWindow.setTableGFX(Database.getTblEasy());  //vengono settate le propriet√† relative alla grafica per ciascuna JTable
 							AppWindow.setTableGFX(Database.getTblMedium());
 							AppWindow.setTableGFX(Database.getTblHard());
 							appWindow.setContentPane(AppWindow.getleadbScreen());
@@ -349,7 +349,7 @@ public class GameOverDialog extends JDialog {
 	}
 	
 	/**
-	 * Mostra la tabella di riferimento della giusta difficolt‡, dopo aver salvato un risultato
+	 * Mostra la tabella di riferimento della giusta difficolt√†, dopo aver salvato un risultato
 	 * @param difficulty
 	 */
 	private static void focusOnTab(String difficulty) {
@@ -392,7 +392,7 @@ public class GameOverDialog extends JDialog {
 	}
 	
 	/**
-	 * Verifica se l'oggetto Ë uguale ad un oggetto di tipo GameOverDialog
+	 * Verifica se l'oggetto √® uguale ad un oggetto di tipo GameOverDialog
 	 */
 	public boolean equals(GameOverDialog dialog) {
 		// pre: dialog!=null

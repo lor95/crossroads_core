@@ -24,7 +24,7 @@ public abstract class Buttons {
 	private static JButton btnBack;
 	private static JButton btnExit;
 	private static String difficulty;
-	private static int selector=0;  // variabile contatore usata in if innestati, permette la selezione della difficolt‡ sull'apposito tasto 
+	private static int selector=0;  // variabile contatore usata in if innestati, permette la selezione della difficolt√† sull'apposito tasto 
 	private static GridBagConstraints gbc_btn;  // constraints del gridBagLayout per posizionare i JButton su menuScreen
 	private static Font fntMenu;  // font per i tasti di menuScreen
 
@@ -208,7 +208,7 @@ public abstract class Buttons {
 	}
 
 	/**
-	 * Setta la difficolt‡ tramite il contatore di tipo int, selector, e if innestati
+	 * Setta la difficolt√† tramite il contatore di tipo int, selector, e if innestati
 	 */
 	public static void setDifficulty() {
 		if(selector==0) difficulty="Easy";
@@ -220,7 +220,7 @@ public abstract class Buttons {
 	}
 
 	/**
-	 * Setta uno di tre colori per il font del JButton relativo alla difficolt‡, a seconda del livello scelto
+	 * Setta uno di tre colori per il font del JButton relativo alla difficolt√†, a seconda del livello scelto
 	 * @return lvlColor
 	 */
 	public static Color setColorButton() {

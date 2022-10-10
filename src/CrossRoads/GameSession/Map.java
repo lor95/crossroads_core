@@ -30,7 +30,7 @@ public class Map {
 	private static final int s=30; // offset degli spawnPoint
 	/*----------------------------------*/
 	
-	private static String difficulty; // difficolt‡ selezionata
+	private static String difficulty; // difficolt√† selezionata
 	
 	/* numero di ciascun elemento statico */
 	private static int rNumber; // numero di tratti di strada sulla mappa
@@ -42,7 +42,7 @@ public class Map {
 	private static Random randObj=new Random(); // oggetto di tipo random, utilizzato per generare numeri
 	private static Score score;
 	
-	/* Liste per ogni entit‡ */
+	/* Liste per ogni entit√† */
 	private static ArrayList<Road> rList=new ArrayList<Road>(); // lista di strade
 	private static ArrayList<Intersection> iList=new ArrayList<Intersection>(); // lista di incroci
 	private static ArrayList<TrafficLight> tlList=new ArrayList<TrafficLight>(); // lista di semafori
@@ -53,12 +53,12 @@ public class Map {
 	private static List<Pedestrian> pList=Collections.synchronizedList(new ArrayList<Pedestrian>()); // lista di pedoni
 	
 	/**
-	 * Costruttore della classe Map, in base al parametro difficulty variano le propriet‡ dei metodi invocati
-	 * @param difficulty livello di difficolt‡
+	 * Costruttore della classe Map, in base al parametro difficulty variano le propriet√† dei metodi invocati
+	 * @param difficulty livello di difficolt√†
 	 */
 	@SuppressWarnings("static-access")
 	public Map(String difficulty) {		
-		this.difficulty=difficulty; // viene assegnata la difficolt‡
+		this.difficulty=difficulty; // viene assegnata la difficolt√†
 		System.out.println(toString());
 		Game.setMasterEnabler(true);
 		setRNumber(); // viene assegnati il numero di strade
@@ -102,7 +102,7 @@ public class Map {
 	private static void spawnI() {
 		int i; // inizializzo un intero
 		for(i=1; i<=iNumber; i++) { 
-			/* finchÈ l'intero inizializzato a 1 non eguaglia il numero di incroci,
+			/* finch√© l'intero inizializzato a 1 non eguaglia il numero di incroci,
 			 * continua a generare incroci */
 			Intersection intersection=new Intersection(setXCordI(i), setYCordI(i));
 			iList.add(intersection); // aggiungi l'incrocio appena generato alla lista di incroci
@@ -594,7 +594,7 @@ public class Map {
 	}
 	
 	/**
-	 * Assegna un valore ad rNumber, in base alla difficolt‡ selezionata
+	 * Assegna un valore ad rNumber, in base alla difficolt√† selezionata
 	 */
 	public static void setRNumber() {
 		if(difficulty.equals("Easy")) rNumber=8;
@@ -603,16 +603,16 @@ public class Map {
 	}
 
 	/**
-	 * Assegna un valore ad iNumber, in base alla difficolt‡ selezionata
+	 * Assegna un valore ad iNumber, in base alla difficolt√† selezionata
 	 */
 	public static void setINumber() {
-		if(difficulty.equals("Easy")) iNumber=1; // 1 incrocio se difficolt‡ facile
-		else if(difficulty.equals("Medium")) iNumber=2; // 2 incroci se difficolt‡ media
+		if(difficulty.equals("Easy")) iNumber=1; // 1 incrocio se difficolt√† facile
+		else if(difficulty.equals("Medium")) iNumber=2; // 2 incroci se difficolt√† media
 		else iNumber=4; // 4 incroci altrimenti
 	}
 
 	/**
-	 * Assegna un valore a tlNumber, in base alla difficolt‡ selezionata
+	 * Assegna un valore a tlNumber, in base alla difficolt√† selezionata
 	 */
 	public static void setTLNumber() {
 		if(difficulty.equals("Easy")) tlNumber=4;
@@ -621,7 +621,7 @@ public class Map {
 	}
 
 	/**
-	 * Assegna un valore a spvNumber, in base alla difficolt‡ selezionata
+	 * Assegna un valore a spvNumber, in base alla difficolt√† selezionata
 	 */
 	public static void setSPVNumber() {
 		if(difficulty.equals("Easy")) spvNumber=4;
@@ -630,7 +630,7 @@ public class Map {
 	}
 
 	/**
-	 * Assegna un valore a sppNumber, in base alla difficolt‡ selezionata
+	 * Assegna un valore a sppNumber, in base alla difficolt√† selezionata
 	 */
 	public static void setSPPNumber() {
 		if(difficulty.equals("Easy")) sppNumber=8;
@@ -647,8 +647,8 @@ public class Map {
 	}
 	
 	/**
-	 * Restituisce il valore della difficolt‡ selezionata
-	 * @return difficulty difficolt‡ selezionata
+	 * Restituisce il valore della difficolt√† selezionata
+	 * @return difficulty difficolt√† selezionata
 	 */
 	public static String getDifficulty(){
 		return difficulty; 
@@ -734,7 +734,7 @@ public class Map {
 	}
 	
 	/**
-	 * Verifica se l'oggetto Ë uguale ad un oggetto di tipo Map
+	 * Verifica se l'oggetto √® uguale ad un oggetto di tipo Map
 	 */
 	public boolean equals(Map map) {
 		// pre: map!=null

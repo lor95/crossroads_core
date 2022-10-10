@@ -37,8 +37,8 @@ public abstract class Database {
 	private static DatabaseMetaData dbmd;
 	private static ResultSet rs;
 	private static Driver derbyEmbeddedDriver;
-	private static Connection conn=null;  // connessione posta a null; se tutto funziona regolarmente, non restituisce mai null, altrimenti d‡ eccezione
-	private static PreparedStatement pstmt; // PreparedStatement Ë un oggetto che rappresenta uno statement SQL precompilato
+	private static Connection conn=null;  // connessione posta a null; se tutto funziona regolarmente, non restituisce mai null, altrimenti d√† eccezione
+	private static PreparedStatement pstmt; // PreparedStatement √® un oggetto che rappresenta uno statement SQL precompilato
 	private static Statement stmt=null;
 	private static CachedRowSet crsEasy;
 	private static CachedRowSet crsMedium;
@@ -55,12 +55,12 @@ public abstract class Database {
 			derbyEmbeddedDriver=new EmbeddedDriver();
 			DriverManager.registerDriver(derbyEmbeddedDriver);
 			conn=DriverManager.getConnection("jdbc:derby:leaddb;create=true");  // viene creata una connessione al database Derby di nome leaddb
-			conn.setAutoCommit(false);  // quando la modalit‡ autocommit Ë true, tutti gli statement SQL sono eseguiti come transazioni individuali
+			conn.setAutoCommit(false);  // quando la modalit√† autocommit √® true, tutti gli statement SQL sono eseguiti come transazioni individuali
 			if (conn!=null) System.out.println("Connection established");
 		} catch (SQLException e) {
 			if (((e.getErrorCode()==40000) && ("XJ040".equals(e.getSQLState())))) {
 				System.out.println("Another JVM claimed the connection; current JVM has been terminated");
-				System.exit(0);  // se avviamo per errore una seconda volta l'applicazione, questa fallisce a connettersi perchË gi‡ la prima JVM vi Ë connessa; catch dell'errore e spegnimento conseguente
+				System.exit(0);  // se avviamo per errore una seconda volta l'applicazione, questa fallisce a connettersi perch√© gi√† la prima JVM vi √® connessa; catch dell'errore e spegnimento conseguente
 			} else {
 				JOptionPane.showMessageDialog(null, e.getClass().getSimpleName() + ": " + e.getMessage());
 			}
@@ -76,7 +76,7 @@ public abstract class Database {
 			stmt=conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			if (conn!=null) {
 				dbmd=conn.getMetaData();
-				rs=dbmd.getTables(null, null, tableName.toUpperCase(), null);  // il nome della table Ë salvato nei metadata in maiuscolo
+				rs=dbmd.getTables(null, null, tableName.toUpperCase(), null);  // il nome della table √® salvato nei metadata in maiuscolo
 				if(rs.next())
 				{
 					System.out.println("Table "+rs.getString("TABLE_NAME")+" already exists");
@@ -94,7 +94,7 @@ public abstract class Database {
 				crsEasy=RowSetProvider.newFactory().createCachedRowSet();
 				crsMedium=RowSetProvider.newFactory().createCachedRowSet();
 				crsHard=RowSetProvider.newFactory().createCachedRowSet();
-				resultSetToCache(rsEasy, crsEasy, "Easy");  // se la table player Ë vuota (perchË creata), i crs sono privi di info; se una table Ë recuperata, i rs eseguono la query su quanto c'Ë e si salva il risultato nei crs
+				resultSetToCache(rsEasy, crsEasy, "Easy");  // se la table player √® vuota (perch√© creata), i crs sono privi di info; se una table √® recuperata, i rs eseguono la query su quanto c'√® e si salva il risultato nei crs
 				resultSetToCache(rsMedium, crsMedium, "Medium");
 				resultSetToCache(rsHard, crsHard, "Hard");
 				crsToTableModel(crsEasy, tblEasy);
@@ -116,7 +116,7 @@ public abstract class Database {
 			Timestamp match_time=new Timestamp(AppWindow.getStartTime());
 			Timestamp match_length=new Timestamp(Game.getEndTime()-AppWindow.getStartTime());
 			String level=Map.getDifficulty();
-			pstmt=conn.prepareStatement("insert into player (position, name, score, duration, date, time, level) values (?,?,?,?,?,?,?)");  // '?' Ë un placeholder; i valori sono assegnati successivamente
+			pstmt=conn.prepareStatement("insert into player (position, name, score, duration, date, time, level) values (?,?,?,?,?,?,?)");  // '?' √® un placeholder; i valori sono assegnati successivamente
 			pstmt.setInt(1, placeholder);
 			pstmt.setString(2, playerName);
 			pstmt.setInt(3, Score.getActualScore());
@@ -125,7 +125,7 @@ public abstract class Database {
 			pstmt.setString(6, timeFormat.format(match_time));
 			pstmt.setString(7, level);
 			pstmt.executeUpdate();
-			crsEasy=RowSetProvider.newFactory().createCachedRowSet();  // si ricreano i crs perchË saranno riempiti da nuovi ResultSet
+			crsEasy=RowSetProvider.newFactory().createCachedRowSet();  // si ricreano i crs perch√© saranno riempiti da nuovi ResultSet
 			crsMedium=RowSetProvider.newFactory().createCachedRowSet();
 			crsHard=RowSetProvider.newFactory().createCachedRowSet();
 			resultSetToCache(rsEasy, crsEasy, "Easy");
@@ -149,7 +149,7 @@ public abstract class Database {
 			stmt.close();  // di conseguenza sono chiusi implicitamanete i ResultSet associati a tale Statement
 			conn.close();
 			DriverManager.getConnection("jdbc:derby:;shutdown=true");
-		} catch (SQLException e) {  // quando il motore Derby Ë spento, si verifica una SQLException; la catturiamo e viene riferito se lo spegnimento Ë avvenuto normalmente o no
+		} catch (SQLException e) {  // quando il motore Derby √® spento, si verifica una SQLException; la catturiamo e viene riferito se lo spegnimento √® avvenuto normalmente o no
 			if (((e.getErrorCode()==50000) && ("XJ015".equals(e.getSQLState())))) {
 				System.out.println("Derby shut down normally");
 			} else {
@@ -160,7 +160,7 @@ public abstract class Database {
 	}
 	
 	/**
-	 * Il ResultSet Ë salvato in memoria locale grazie all'apposito oggetto Java CachedRowSetImpl 
+	 * Il ResultSet √® salvato in memoria locale grazie all'apposito oggetto Java CachedRowSetImpl 
 	 */
 	public static CachedRowSet resultSetToCache(ResultSet rs, CachedRowSet crs, String difficulty) {
 		try {
@@ -173,7 +173,7 @@ public abstract class Database {
 	}
 	
 	/**
-	 * Il ResultSet Ë salvato in memoria locale grazie all'apposito oggetto Java CachedRowSetImpl. Questo ResultSet Ë ristretto a un determinato valore del campo "name"
+	 * Il ResultSet √® salvato in memoria locale grazie all'apposito oggetto Java CachedRowSetImpl. Questo ResultSet √® ristretto a un determinato valore del campo "name"
 	 */
 	private static CachedRowSet restrictedResultSetToCache(ResultSet rs, CachedRowSet crs, String difficulty) {
 		try {
@@ -231,8 +231,8 @@ public abstract class Database {
 	
 	/**
 	 * I metadata di ciascun ResultSet in cache (CachedRowSetImpl) costruiscono il modello di una JTable. Si aggiungono tante righe alla JTable quanti gli elementi nel CachedRowSetImpl.
-	 * @param crs Ë il CachedRowSetImpl (ovvero ResultSet in cache)
-	 * @param table Ë la JTable
+	 * @param crs √® il CachedRowSetImpl (ovvero ResultSet in cache)
+	 * @param table √® la JTable
 	 */
 	public static void crsToTableModel(CachedRowSet crs, JTable table) {
 		try {
@@ -344,7 +344,7 @@ public abstract class Database {
 	}
 	
 	/**
-	 * Verifica se l'oggetto Ë uguale ad un oggetto di tipo Database
+	 * Verifica se l'oggetto √® uguale ad un oggetto di tipo Database
 	 */
 	public boolean equals(Database database) {
 		// pre: database!=null

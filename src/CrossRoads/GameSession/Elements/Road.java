@@ -134,7 +134,7 @@ public class Road extends Rectangle {
 	}
 	
 	/**
-	 * Verifica se l'oggetto è uguale ad un oggetto di tipo Road
+	 * Verifica se l'oggetto Ã¨ uguale ad un oggetto di tipo Road
 	 */
 	public boolean equals(Road road) {
 		// pre: road!=null

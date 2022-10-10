@@ -17,7 +17,7 @@ import CrossRoads.GameSession.Elements.KillPoint;
 import CrossRoads.GameSession.Elements.Road;
 
 /**
- * Classe che definisce l'entit‡ pedone ed il suo rapportarsi con gli altri elementi di gioco
+ * Classe che definisce l'entit√† pedone ed il suo rapportarsi con gli altri elementi di gioco
  */
 @SuppressWarnings("serial")
 public class Pedestrian extends JComponent implements Runnable {
@@ -36,7 +36,7 @@ public class Pedestrian extends JComponent implements Runnable {
 	private Clip pedestrianCrash;
 	
 	/**
-	 * Costruttore di Pedestrian, per argomento una coppia di coordinate (x,y) e la direzione che il pedone avr‡ all'atto della creazione
+	 * Costruttore di Pedestrian, per argomento una coppia di coordinate (x,y) e la direzione che il pedone avr√† all'atto della creazione
 	 * @param cordX coordinata x per la generazione
 	 * @param cordY coordinata y per la generazione
 	 * @param pDirection direzione del pedone
@@ -82,8 +82,8 @@ public class Pedestrian extends JComponent implements Runnable {
 			}
 			startMoving();
 			accident(); 
-			/* da sistemare perchÈ un pedone cosÏ facendo potrebbe essere colpito da un veicolo 
-			quando in realt‡ non dovrebbe, perchÈ gi‡ passato, da modificare la condizione di stop */
+			/* da sistemare perch√© un pedone cos√¨ facendo potrebbe essere colpito da un veicolo 
+			quando in realt√† non dovrebbe, perch√© gi√† passato, da modificare la condizione di stop */
 		}		
 	}
 	
@@ -122,7 +122,7 @@ public class Pedestrian extends JComponent implements Runnable {
 	}
 
 	/**
-	 * Definisce il valore della variabile speed, la velocit‡ con cui si sposta un oggetto di tipo Pedestrian sulla mappa  
+	 * Definisce il valore della variabile speed, la velocit√† con cui si sposta un oggetto di tipo Pedestrian sulla mappa  
 	 */
 	private void setSpeed() {
 		int intValue;
@@ -168,7 +168,7 @@ public class Pedestrian extends JComponent implements Runnable {
 	}	
 	
 	/**
-	 * Stabilisce se Ë avvenuto un contatto veicolo-pedone, con conseguente conclusione della sessione di gioco
+	 * Stabilisce se √® avvenuto un contatto veicolo-pedone, con conseguente conclusione della sessione di gioco
 	 */
 	private void accident() {
 		int i;
@@ -198,7 +198,7 @@ public class Pedestrian extends JComponent implements Runnable {
 	/**
 	 * Verifica che l'oggetto di tipo Pedestrian sia effettivamente nell'area di sua appartenenza, 
 	 * il marciapiede di una strada o le strisce di attraversamento in un incrocio
-	 * @return correct variabile boolean che indica se il pedone Ë all'interno di un marciapiede o sopra le strisce pedonali
+	 * @return correct variabile boolean che indica se il pedone √® all'interno di un marciapiede o sopra le strisce pedonali
 	 */
 	@SuppressWarnings("unused")
 	private boolean checkIfCorrectlyLocated() {
@@ -220,7 +220,7 @@ public class Pedestrian extends JComponent implements Runnable {
 				}
 			}			
 		}
-		if(!correct) { // non Ë in una strada, verifica se si trova in un incrocio
+		if(!correct) { // non √® in una strada, verifica se si trova in un incrocio
 			for(j=0; j<Map.getiList().size(); j++) {
 				i=Map.getiList().get(j);
 				if(areaCovered.intersects(i.getX(), i.getY(), i.getWidth(), i.getHeight())) {
@@ -306,7 +306,7 @@ public class Pedestrian extends JComponent implements Runnable {
 	}
 	
 	/**
-	 * Verifica se l'oggetto Ë uguale ad un oggetto di tipo Pedestrian
+	 * Verifica se l'oggetto √® uguale ad un oggetto di tipo Pedestrian
 	 */
 	public boolean equals(Pedestrian ped) {
 		// pre: ped!=null

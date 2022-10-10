@@ -11,7 +11,7 @@ import CrossRoads.GUI.GameOverDialog;
 import CrossRoads.GameSession.Map;
 
 /**
- * Classe che definisce una coda stradale, le funzionalità e il suo rapporto con il resto delle altre entità quali veicoli e semafori;
+ * Classe che definisce una coda stradale, le funzionalitÃ  e il suo rapporto con il resto delle altre entitÃ  quali veicoli e semafori;
  * estende la classe Rectangle del package AWT di Java
  */
 @SuppressWarnings("serial")
@@ -152,8 +152,8 @@ public class Queue extends Rectangle {
 	}
 	
 	/**
-	 * Assegna un nuovo valore alla larghezza della Queue; la nuova dimensione è relativa alla distanza 
-	 * che intercorre dalla coda del veicolo in questione al punto focale più lontano che può raggiungere lo stesso veicolo
+	 * Assegna un nuovo valore alla larghezza della Queue; la nuova dimensione Ã¨ relativa alla distanza 
+	 * che intercorre dalla coda del veicolo in questione al punto focale piÃ¹ lontano che puÃ² raggiungere lo stesso veicolo
 	 * @param w larghezza del veicolo
 	 * @param r distanza tra coda del veicolo e punto focale
 	 * @return w nuova larghezza di Queue
@@ -165,8 +165,8 @@ public class Queue extends Rectangle {
 	}
 	
 	/**
-	 * Assegna un nuovo valore all'altezza della Queue; la nuova dimensione è relativa alla distanza 
-	 * che intercorre dalla coda del veicolo in questione al punto focale più lontano che può raggiungere lo stesso veicolo
+	 * Assegna un nuovo valore all'altezza della Queue; la nuova dimensione Ã¨ relativa alla distanza 
+	 * che intercorre dalla coda del veicolo in questione al punto focale piÃ¹ lontano che puÃ² raggiungere lo stesso veicolo
 	 * @param h altezza del veicolo
 	 * @param r distanza tra coda del veicolo e punto focale
 	 * @return h nuova altezza di Queue
@@ -185,7 +185,7 @@ public class Queue extends Rectangle {
 	}
 	
 	/**
-	 * Verifica se l'oggetto è uguale ad un oggetto di tipo Queue
+	 * Verifica se l'oggetto Ã¨ uguale ad un oggetto di tipo Queue
 	 */
 	public boolean equals(Queue queue) {
 		// pre: queue!=null
