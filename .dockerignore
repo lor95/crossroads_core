@@ -1,0 +1,7 @@
+**/*.class
+README.md
+.project
+derby.log
+/leaddb
+/bin
+Dockerfile

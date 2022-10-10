@@ -273,7 +273,7 @@ public class TrafficLight extends JComponent {
 	 * @return laneDirection la direzione della corsia
 	 */
 	public String getLaneDirection() {
-		return laneDirection;è
+		return laneDirection;
 	}
 	
 	/**

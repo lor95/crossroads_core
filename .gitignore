@@ -1,4 +1,6 @@
 /leaddb/
-/.project
-/derby.log
-/.classpath
+.project
+derby.log
+.classpath
+/bin/
+**/*.class
