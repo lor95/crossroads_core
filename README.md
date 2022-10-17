@@ -2,7 +2,7 @@
 
 Commands:
 * Build image: `docker build -t crossroads .`
-* Run image: `docker run -it --rm -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY --device /dev/snd crossroads` (`xhost +local:`)
+* Run image: `docker run -it -n crossroads --rm -v /tmp/.X11-unix:/tmp/.X11-unix -v "$(pwd)"/data:/crossroads/data -e DISPLAY=$DISPLAY --device /dev/snd crossroads` (`xhost +local:`)
 
 ## Local build instructions:
 
