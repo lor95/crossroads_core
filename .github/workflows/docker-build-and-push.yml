@@ -4,6 +4,6 @@ on:
 
 jobs:
   build:
-    uses: https://github.com/lor95/github-actions/blob/main/workflows/docker-build-and-push.yaml
+    uses: https://github.com/lor95/github-actions/blob/main/workflows/docker-build-and-push.yaml@main
     with:
       image-name: crossroads
