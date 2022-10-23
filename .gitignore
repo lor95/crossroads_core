@@ -4,3 +4,4 @@ derby.log
 .classpath
 /bin/
 **/*.class
+**/.DS_Store
